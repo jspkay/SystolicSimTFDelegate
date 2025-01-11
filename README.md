@@ -1,6 +1,6 @@
 # Premise
 
-> IMPRTANT: this repo was created as part of the [tensorflow](https://github.com/tensorflow/tensorflow) repository.
+> IMPORTANT: this repo was created as part of the [tensorflow](https://github.com/tensorflow/tensorflow) repository.
 In order to build, it is necessary to clone this repo in the [delegates directory](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/delegates).
 To build, it is sufficient to use bazel:
 
