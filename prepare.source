@@ -1,0 +1,9 @@
+conda info | grep "active environment .* tensorflow" > /dev/null
+
+if [ $? -ne 0 ]
+then conda activate tensorflow
+echo "activated"
+fi
+
+export LIB_PATH="$HOME/builds/tensorflow/bazel-bin/tensorflow/lite/delegates/systolic_sim/systolic_sim_external_delegate.so"
+

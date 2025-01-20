@@ -19,6 +19,7 @@ limitations under the License.
 #include <memory>
 
 #include "tensorflow/lite/c/common.h"
+#include "tensorflow/lite/tools/logging.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,7 +35,7 @@ typedef struct {
   // Report error during invoke.
   bool error_during_invoke;
 
-  bool print_log_to_stderr;
+  bool print_log_to_stdout;
 } SystolicSimDelegateOptions;
 
 // Returns a structure with the default delegate options.
@@ -56,6 +57,7 @@ void TfLiteDummyDelegateDelete(TfLiteDelegate* delegate);
 // management.
 inline std::unique_ptr<TfLiteDelegate, void (*)(TfLiteDelegate*)>
 TfLiteDummyDelegateCreateUnique(const SystolicSimDelegateOptions* options) {
+  TFLITE_LOG(INFO) << "options are " << options;
   return std::unique_ptr<TfLiteDelegate, void (*)(TfLiteDelegate*)>(
       TfLiteDummyDelegateCreate(options), TfLiteDummyDelegateDelete);
 }

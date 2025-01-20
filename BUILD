@@ -16,9 +16,13 @@ cc_library(
     hdrs = [
         "systolic_sim_delegate.h",
     ],
+    copts = [
+      "-g",  # WARNING added by salvo 
+    ],
     deps = [
         "//tensorflow/lite/c:common",
         "//tensorflow/lite/delegates/utils:simple_delegate",
+        "//tensorflow/lite/tools:logging",
     ],
 )
 
@@ -26,6 +30,9 @@ cc_binary(
     name = "systolic_sim_external_delegate.so",
     srcs = [
         "external_delegate_adaptor.cc",
+    ],
+    copts = [
+      "-g", # WARNING added by salvo
     ],
     linkshared = 1,
     linkstatic = 1,

@@ -49,6 +49,7 @@ TfLiteDelegate* CreateDummyDelegateFromOptions(char** options_keys,
   constexpr char kReportErrorDuingInit[] = "error_during_init";
   constexpr char kReportErrorDuingPrepare[] = "error_during_prepare";
   constexpr char kReportErrorDuingInvoke[] = "error_during_invoke";
+  constexpr char kPrintLogToStdout[] = "print_log_to_stdout";
 
   std::vector<tflite::Flag> flag_list = {
       tflite::Flag::CreateFlag(kAllowedBuiltinOp, &options.allowed_builtin_code,
@@ -62,6 +63,8 @@ TfLiteDelegate* CreateDummyDelegateFromOptions(char** options_keys,
       tflite::Flag::CreateFlag(kReportErrorDuingInvoke,
                                &options.error_during_invoke,
                                "Report error during invoke."),
+      tflite::Flag::CreateFlag(kPrintLogToStdout, &options.print_log_to_stdout,
+                               "Print log to stdout"),
   };
 
   int argc = num_options + 1;
